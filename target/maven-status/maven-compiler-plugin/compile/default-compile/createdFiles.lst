@@ -1,0 +1,12 @@
+gruposTrabalho\pessoa\Pessoa.class
+gruposTrabalho\telefone\Telefone.class
+gruposTrabalho\endereco\Endereco.class
+gruposTrabalho\servlets\RelatoriosServlet.class
+gruposTrabalho\util\Util.class
+gruposTrabalho\cargaDados\CargaDadosLocal.class
+gruposTrabalho\atuacao\Atuacao.class
+gruposTrabalho\pessoa\PessoaBeanLocal.class
+gruposTrabalho\cargaDados\CargaDados.class
+gruposTrabalho\endereco\TipoLogradouro.class
+gruposTrabalho\grupo\Grupo.class
+gruposTrabalho\pessoa\PessoaBean.class
