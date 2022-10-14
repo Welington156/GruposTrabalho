@@ -32,7 +32,7 @@ public class CargaDados implements CargaDadosLocal {
 
     @PostConstruct
     @Override
-    public void popularBanco() {
+    public void CargaBanco() {
         // Primeira pessoa
         Pessoa pessoa1 = new Pessoa();
 
@@ -205,9 +205,9 @@ public class CargaDados implements CargaDadosLocal {
                         grupo4)
         ));
 
-        pessoaBean.save(pessoa1);
-        pessoaBean.save(pessoa2);
-        pessoaBean.save(pessoa3);
-        pessoaBean.save(pessoa4);
+        pessoaBean.salvar(pessoa1);
+        pessoaBean.salvar(pessoa2);
+        pessoaBean.salvar(pessoa3);
+        pessoaBean.salvar(pessoa4);
     }
 }

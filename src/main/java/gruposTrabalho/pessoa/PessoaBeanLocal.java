@@ -13,7 +13,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface PessoaBeanLocal {
-    public void save(Pessoa pessoa);
+    public void salvar(Pessoa pessoa);
     
     public List<Pessoa> findAllPessoaQuery();
     

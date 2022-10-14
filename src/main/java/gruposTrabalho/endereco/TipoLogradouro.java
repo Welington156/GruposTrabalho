@@ -6,7 +6,7 @@ package gruposTrabalho.endereco;
 
 /**
  *
- * @author welin
+ * @author welington
  */
 public enum TipoLogradouro {
     RUA,

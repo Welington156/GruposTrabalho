@@ -22,7 +22,7 @@ public class PessoaBean implements PessoaBeanLocal {
     private EntityManager entityManager;
 
     @Override
-    public void save(Pessoa pessoa) {
+    public void salvar(Pessoa pessoa) {
         entityManager.persist(pessoa);
     }
 
@@ -66,10 +66,10 @@ public class PessoaBean implements PessoaBeanLocal {
     
     @Override
     public List<String> findNomePessoaNamed() {
-         TypedQuery q=entityManager.createNamedQuery(
+        return entityManager.createNamedQuery(
                 "Pessoa.findNome",
-                String.class);
-               return q.getResultList();
+                String.class)
+                .getResultList();
     }
     
     @Override
