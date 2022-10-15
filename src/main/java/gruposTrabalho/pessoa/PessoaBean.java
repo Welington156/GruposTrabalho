@@ -30,39 +30,30 @@ public class PessoaBean implements PessoaBeanLocal {
 
     @Override
     public List<Pessoa> findAllPessoaQuery() {
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p");
+        Query q = entityManager.createQuery("SELECT p FROM Pessoa p");
         return (List<Pessoa>) q.getResultList();
     }
 
     @Override
     public List<Pessoa> findAllPessoaTyped() {
-        TypedQuery q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p",
-                Pessoa.class);
+        TypedQuery q = entityManager.createQuery("SELECT p FROM Pessoa p",Pessoa.class);
         return q.getResultList();
     }
 
     @Override
     public List<Pessoa> findAllPessoaNamed() {
-        return entityManager.createNamedQuery(
-                "Pessoa.findAll",
-                Pessoa.class)
-                .getResultList();
+        return entityManager.createNamedQuery("Pessoa.findAll",Pessoa.class).getResultList();
     }
 
     @Override
     public List<String> findNomePessoaQuery() {
-        Query q = entityManager.createQuery(
-                "SELECT p.nome FROM Pessoa p");
+        Query q = entityManager.createQuery("SELECT p.nome FROM Pessoa p");
         return (List<String>) q.getResultList();
     }
 
     @Override
     public List<String> findNomePessoaTyped() {
-        TypedQuery q = entityManager.createQuery(
-                "SELECT p.nome FROM Pessoa p",
-                String.class);
+        TypedQuery q = entityManager.createQuery("SELECT p.nome FROM Pessoa p",String.class);
         return q.getResultList();
     }
 
@@ -70,221 +61,160 @@ public class PessoaBean implements PessoaBeanLocal {
     public List<String> findNomePessoaNamed() {
         return entityManager.createNamedQuery("Pessoa.findNome",String.class).getResultList();
     }
-
+    
     @Override
     public List<Pessoa> findNomeEnderecoQuery() {
-        Query q = entityManager.createQuery(
-                "SELECT p.nome, p.endereco FROM Pessoa p");
+        Query q = entityManager.createQuery("SELECT p.nome, p.endereco FROM Pessoa p");
         return (List<Pessoa>) q.getResultList();
     }
 
     @Override
     public List<Pessoa> findNomeEnderecoTyped() {
-        TypedQuery q = entityManager.createQuery(
-                "SELECT p.nome, p.endereco FROM Pessoa p",
-                Object[].class);
+        TypedQuery q = entityManager.createQuery("SELECT p.nome, p.endereco FROM Pessoa p",Object[].class);
         return q.getResultList();
     }
 
     @Override
     public List<Object[]> findNomeEnderecoNamed() {
-        return entityManager.createNamedQuery(
-                "Pessoa.findNomeEndereco",
-                Object[].class)
-                .getResultList();
+        return entityManager.createNamedQuery("Pessoa.findNomeEndereco",Object[].class).getResultList();
     }
 
     @Override
     public List<Pessoa> findPessoaInAvenidaQuery() {
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro = 1");
+        Query q = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro = 1");
         return (List<Pessoa>) q.getResultList();
     }
 
     @Override
     public List<Pessoa> findPessoaInAvenidaTyped() {
-        TypedQuery q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro = 1",
-                Pessoa.class);
+        TypedQuery q = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro = 1",Pessoa.class);
         return q.getResultList();
     }
 
     @Override
     public List<Pessoa> findPessoaInAvenidaNamed() {
-        return entityManager.createNamedQuery(
-                "Pessoa.findPessoaInAvenida",
-                Pessoa.class)
-                .getResultList();
+        return entityManager.createNamedQuery("Pessoa.findPessoaInAvenida",Pessoa.class).getResultList();
     }
 
     @Override
     public List<Pessoa> findPessoaNotPracaQuery() {
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro != 2");
+        Query q = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro != 2");
         return (List<Pessoa>) q.getResultList();
     }
 
     @Override
     public List<Pessoa> findPessoaNotPracaTyped() {
-        TypedQuery q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro != 2",
-                Pessoa.class);
+        TypedQuery q = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.endereco.tipoLogradouro != 2",Pessoa.class);
         return q.getResultList();
     }
 
     @Override
     public List<Pessoa> findPessoaNotPracaNamed() {
-        return entityManager.createNamedQuery(
-                "Pessoa.findPessoaNotPraca",
-                Pessoa.class)
-                .getResultList();
+        return entityManager.createNamedQuery("Pessoa.findPessoaNotPraca",Pessoa.class).getResultList();
     }
     
     @Override
     public List<Object[]> findPessoaNomeTelefoneQuery() {
-        Query q = entityManager.createQuery(
-                "SELECT p.nome, t FROM Pessoa p, IN (p.telefones) t");
+        Query q = entityManager.createQuery("SELECT p.nome, t FROM Pessoa p, IN (p.telefones) t");
         return (List<Object[]>) q.getResultList();
     }
 
     @Override
     public List<Object[]> findPessoaNomeTelefoneTyped() {
-        TypedQuery q = entityManager.createQuery(
-                "SELECT p.nome, t FROM Pessoa p, IN (p.telefones) t",
-                Object[].class);
+        TypedQuery q = entityManager.createQuery("SELECT p.nome, t FROM Pessoa p, IN (p.telefones) t",Object[].class);
         return q.getResultList();
     }
 
     @Override
     public List<Object[]> findPessoaNomeTelefoneNamed() {
-        return entityManager.createNamedQuery(
-                "Pessoa.findPessoaNomeTelefone",
-                Object[].class)
-                .getResultList();
+        return entityManager.createNamedQuery("Pessoa.findPessoaNomeTelefone",Object[].class).getResultList();
     }
 
     public List<Pessoa> findPessoaByDate(LocalDate dataInicio, LocalDate dataFim) {
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p WHERE p.nascimento BETWEEN :dataInicio AND :dataFim")
-                .setParameter("dataInicio", dataInicio)
-                .setParameter("dataFim", dataFim);
+        Query q = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.nascimento BETWEEN :dataInicio AND :dataFim").setParameter("dataInicio", dataInicio).setParameter("dataFim", dataFim);
         return (List<Pessoa>) q.getResultList();
     }
 
     @Override
     public List<Pessoa> findPessoaTelefoneVazio() {
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Pessoa p WHERE p.telefones IS EMPTY");
+        Query q = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.telefones IS EMPTY");
         return (List<Pessoa>) q.getResultList();
     }
 
     @Override
     public List<String> findQuantidadeTelefonesPorPessoa() {
-        return (List<String>) entityManager
-                // "select c,count(c) from Conta c group by c.id"
-                .createQuery("SELECT p.nome, count(t.id) FROM Pessoa p, IN (p.telefones) t GROUP BY p.nome")
-                .getResultList();
+        return (List<String>) entityManager.createQuery("SELECT p.nome, count(t.id) FROM Pessoa p, IN (p.telefones) t GROUP BY p.nome").getResultList();
     }
 
     @Override
     public List<Grupo> findGruposInativos() {
-        return (List<Grupo>) entityManager
-                .createQuery("SELECT g FROM Grupo g WHERE g.ativo = false")
-                .getResultList();
+        return (List<Grupo>) entityManager.createQuery("SELECT g FROM Grupo g WHERE g.ativo = false").getResultList();
     }
 
     @Override
     public List<String[]> findLideresGrupos() {
-        return (List<String[]>) entityManager
-                .createQuery("SELECT g.nome, g.lider.nome FROM Grupo g")
-                .getResultList();
+        return (List<String[]>) entityManager.createQuery("SELECT g.nome, g.lider.nome FROM Grupo g").getResultList();
     }
 
     @Override
     public List<String> findMembrosGrupo(String nomeGrupo) {
         String query = "SELECT a.pessoa.nome FROM Atuacao a WHERE a.grupo.nome = :nomeGrupo ORDER BY a.pessoa.nome DESC";
-        return (List<String>) entityManager
-                .createQuery(query)
-                .setParameter("nomeGrupo", nomeGrupo)
-                .getResultList();
+        return (List<String>) entityManager.createQuery(query).setParameter("nomeGrupo", nomeGrupo).getResultList();
     }
 
     @Override
     public List<Grupo> findGruposPorLider(String nomeLider) {
         String query = "SELECT g FROM Pessoa p, IN (p.grupos) g WHERE p.nome = :nomeLider";
-        return (List<Grupo>) entityManager
-                .createQuery(query)
-                .setParameter("nomeLider", nomeLider)
-                .getResultList();
+        return (List<Grupo>) entityManager.createQuery(query).setParameter("nomeLider", nomeLider).getResultList();
     }
 
     @Override
     public List<Object[]> findDatasAtuacaoGrupo(String nomeMembro) {
         String query = "SELECT g.nome, a.inicio, a.termino FROM Grupo g, IN (g.atuacoes) a WHERE a.pessoa.nome = :nomeMembro";
-        return (List<Object[]>) entityManager
-                .createQuery(query)
-                .setParameter("nomeMembro", nomeMembro)
-                .getResultList();
+        return (List<Object[]>) entityManager.createQuery(query).setParameter("nomeMembro", nomeMembro).getResultList();
     }
 
 
     @Override
     public List<Grupo> findGrupoByNome(String nomeGrupo) {
         String query = "SELECT g FROM Grupo g WHERE g.nome LIKE :nomeGrupo";
-        return (List<Grupo>) entityManager
-                .createQuery(query)
-                .setParameter("nomeGrupo", '%' + nomeGrupo + '%')
-                .getResultList();
+        return (List<Grupo>) entityManager.createQuery(query).setParameter("nomeGrupo", '%' + nomeGrupo + '%').getResultList();
     }
 
     @Override
     public List<Object[]> findNomeGrupoQuantidadeMembros() {
         String query = "SELECT g.nome, COUNT(DISTINCT a.pessoa.id) FROM Grupo g, IN (g.atuacoes) a GROUP BY g.nome";
-        return (List<Object[]>) entityManager
-                .createQuery(query)
-                .getResultList();
+        return (List<Object[]>) entityManager.createQuery(query).getResultList();
     }
 
     @Override
     public List<Object[]> findNomeGrupoPorTotalAtuacoes(Long total) {
         String query = "SELECT g.nome, COUNT(a.id) FROM Grupo g, IN (g.atuacoes) a GROUP BY g.nome HAVING COUNT(a.id) >= :total";
-        return (List<Object[]>) entityManager
-                .createQuery(query)
-                .setParameter("total", total)
-                .getResultList();
+        return (List<Object[]>) entityManager.createQuery(query).setParameter("total", total).getResultList();
     }
 
     @Override
     public List<String> findNomePessoaPorDataEntradaEmGrupo(Long grupoId, LocalDate dataInicio) {
         String query = "SELECT DISTINCT a.pessoa.nome FROM Atuacao a WHERE a.grupo.id = :grupoId AND a.inicio >= :dataInicio";
-        return (List<String>) entityManager
-                .createQuery(query)
-                .setParameter("grupoId", grupoId)
-                .setParameter("dataInicio", dataInicio)
-                .getResultList();
+        return (List<String>) entityManager.createQuery(query).setParameter("grupoId", grupoId).setParameter("dataInicio", dataInicio).getResultList();
     }
 
     @Override
     public List<String[]> findGruposEPessoaSemDataTermino() {
         String query = "SELECT a.grupo.nome, a.pessoa.nome FROM Atuacao a WHERE a.termino IS NULL";
-        return (List<String[]>) entityManager
-                .createQuery(query)
-                .getResultList();
+        return (List<String[]>) entityManager.createQuery(query).getResultList();
     }
 
     @Override
     public List<String[]> findLiderMembrosGrupos() {
         String query = "SELECT g.nome, g.lider.nome, p.nome FROM Atuacao a JOIN a.grupo g JOIN a.pessoa p ORDER BY g.nome, g.lider.nome, p.nome";
-        return (List<String[]>) entityManager
-                .createQuery(query)
-                .getResultList();
+        return (List<String[]>) entityManager.createQuery(query).getResultList();
 
     }
 
     @Override
     public List<Object[]> findDataMembroGrupos(Long idGrupo, LocalDate dataInicio){
-        return (List<Object[]>)entityManager.createQuery("SELECT new io.github.thigassantos.grupostrabalho.grupos.MembroDto(a.grupo.nome, a.inicio, a.pessoa.nome) FROM Atuacao a WHERE a.grupo.id = :idGrupo AND a.inicio >= :dataInicio ORDER BY a.grupo.nome, a.inicio")
-                .setParameter("idGrupo", idGrupo).setParameter("dataInicio", dataInicio).getResultList();
+        return (List<Object[]>)entityManager.createQuery("SELECT new io.github.thigassantos.grupostrabalho.grupos.MembroDto(a.grupo.nome, a.inicio, a.pessoa.nome) FROM Atuacao a WHERE a.grupo.id = :idGrupo AND a.inicio >= :dataInicio ORDER BY a.grupo.nome, a.inicio").setParameter("idGrupo", idGrupo).setParameter("dataInicio", dataInicio).getResultList();
     }
 
     @Override

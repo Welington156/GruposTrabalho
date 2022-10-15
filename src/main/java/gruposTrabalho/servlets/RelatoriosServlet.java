@@ -50,7 +50,7 @@ public class RelatoriosServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet</title>");
+            out.println("<title>Relatorios</title>");
             out.println("</head>");
             out.println("<body>");
             
