@@ -1,0 +1,17 @@
+Entidades\Pessoa.class
+Entidades\Endereco$TipoLogradouro.class
+Beans\PopularBancoLocal.class
+Beans\GrupoBeanLocal.class
+Utils\EstadosBR.class
+Utils\HTML.class
+Beans\PessoaBean.class
+DTO\MembroDTO.class
+Entidades\Grupo.class
+Entidades\Atuacao.class
+Beans\PessoaBeanLocal.class
+Entidades\Endereco.class
+Utils\EstadosBR$1.class
+Beans\PopularBanco.class
+Servlets\Relatorios.class
+Beans\GrupoBean.class
+Entidades\Telefone.class
